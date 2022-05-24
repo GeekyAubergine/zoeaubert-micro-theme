@@ -2,9 +2,7 @@
 <link rel="preload stylesheet" as="style" href="{{ $css.Permalink }}" />
 
 {{ $styles := resources.Get "css/styles.css" | resources.PostCSS }} 
-{{ if hugo.IsProduction }} 
-{{ $styles = $styles | minify | fingerprint | resources.PostProcess }} 
-{{ else }} 
+{{ if not hugo.IsProduction }} 
 {{ $styles = $styles | resources.ExecuteAsTemplate (printf "css/styles.dev.%v.css" now.UnixMilli) . }}
 {{ end }}
 <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
