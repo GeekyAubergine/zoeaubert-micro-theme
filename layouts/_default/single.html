@@ -1,0 +1,59 @@
+{{ define "main" }}
+
+<article class="">
+  <header class="mb-8">
+    {{ if .Title }}
+    <h2 class="text-2xl mb-0 link leading-6">{{ .Title }}</h2>
+    <time datetime="{{ .Date }}" class="mb-4 text-lg secondary">
+      {{ .Date | time.Format ":date_medium" }}
+    </time>
+    {{ else }}
+    <h2 class="text-2xl link mb-2 font-bold">
+      <time datetime="{{ .Date }}">
+        {{ .Date | time.Format ":date_medium" }}
+      </time>
+    </h2>
+    {{ end }}
+  </header>
+  <section class="post-content">{{ .Content }}</section>
+
+  {{ partial "categories" . }}
+
+  <!-- Post Nav -->
+  {{ $pages := where site.RegularPages "Type" "post" }}<!---->
+  {{ if and (gt (len $pages) 1) (in $pages . ) }}
+  <nav class="flex w-full justify-between mt-8">
+    {{ with $pages.Next . }}
+    <a class="p-2 px-3 bg-category-dark text-text-dark dark:bg-category dark:text-text rounded-md" href="{{ .Permalink }}"><span>←</span>
+      <span>
+        {{ if .Name }}
+        {{ .Name }}
+        {{ else if .Date }}
+        {{ .Date | time.Format ":date_medium" }}
+        {{ else }}
+        Previous
+        {{ end }}
+      </span>
+    </a>
+    {{ else }}
+    <div></div>
+    {{ end }} 
+    {{ with $pages.Prev . }}
+    <a class="p-2 px-3 bg-category-dark text-text-dark dark:bg-category dark:text-text rounded-md" href="{{ .Permalink }}">
+      <span>
+        {{ if .Name }} 
+        {{ .Name }} 
+        {{ else if .Date }}
+        {{ .Date | time.Format ":date_medium" }}
+        {{ else }}
+        Next
+        {{ end }}
+      </span>
+	    <span>→</span>
+    </a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</article>
+
+{{ end }}

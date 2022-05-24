@@ -1,0 +1,81 @@
+<header class="flex flex-col mt-4 mb-12">
+  <div class="flex flex-col items-baseline md:flex-row md:justify-between">
+    <div class="flex flex-row items-center w-full justify-between md:w-auto md:justify-start">
+      <h1 class="text-3xl font-bold">
+        <a class="" href="{{ `` | absURL }}">{{ site.Title }}</a>
+      </h1>
+
+      {{ partial "theme_toggle.html" . }}
+    </div>
+
+    <nav class="flex flex-row justify-between w-full mt-2 md:w-auto">
+      <a class="socialLink md:ml-4" href="/photos">Photos</a>
+      <a class="socialLink md:ml-4" href="/archive">Archive</a>
+      <a
+        class="socialLink md:ml-4"
+        href="https://micro.blog/{{ .Site.Author.username }}"
+        target="_blank"
+        rel="noopener"
+        >
+        Micro.blog
+      </a>
+      <a class="socialLink md:ml-4" href="https://zoeaubert.me">More</a>
+    </nav>
+  </div>
+
+  {{/*  <nav class="flex flex-row justify-around mt-2 pt-1 border-t border-t-border">
+    {{ with .Site.Params.github_username }}
+    <a
+      class="socialLink"
+      href="https://github.com/{{ . }}"
+      target="_blank"
+      rel="noopener"
+    >
+      Github
+    </a>
+    {{ end }} {{ with .Site.Params.twitter_username }}
+    <a
+      class="socialLink"
+      href="https://twitter.com/{{ . }}"
+      target="_blank"
+      rel="noopener"
+    >
+      Twitter
+    </a>
+    {{ end }} {{ with .Site.Params.instagram_username }}
+    <a
+      class="socialLink"
+      href="https://instagram.com/{{ . }}"
+      target="_blank"
+      rel="noopener"
+    >
+      Instagram
+    </a>
+    {{ end }}
+
+    <a
+      class="socialLink"
+      href="https://micro.blog/{{ .Site.Author.username }}"
+      target="_blank"
+      rel="noopener"
+    >
+      Micro.blog
+    </a>
+  </nav>  */}}
+
+  <link rel="me" href="https://micro.blog/{{ .Site.Author.username }}" />
+  {{ with .Site.Params.twitter_username }}
+  <link rel="me" href="https://twitter.com/{{ . }}" />
+  {{ end }} {{ with .Site.Params.github_username }}
+  <link rel="me" href="https://github.com/{{ . }}" />
+  {{ end }} {{ with .Site.Params.instagram_username }}
+  <link rel="me" href="https://instagram.com/{{ . }}" />
+  {{ end }}
+
+  <link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth" />
+  <link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
+  <link rel="micropub" href="https://micro.blog/micropub" />
+  <link rel="microsub" href="https://micro.blog/microsub" />
+  <link rel="webmention" href="https://micro.blog/webmention" />
+  <link rel="subscribe" href="https://micro.blog/users/follow" />
+</header>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+{{ $.Scratch.Delete "social-list" }}
+{{ $social := slice "twitter" "github" "instagram" "microdotblog" "buymeacoffee"}}
+{{ range $social }}
+{{ $.Scratch.Add "social-list" (slice .) }}
+{{ end }}
+
+<html lang="{{ site.LanguageCode }}" class="dark">
+  {{ partial "head" . }}
+
+  <body class="hidden" data-menu="{{ isset site.Menus `main` }}">
+    {{ partial "header" . }}
+
+    <main>{{ block "main" . }}{{ end }}</main>
+
+    {{ partial "footer" . }}
+
+    {{ range .Site.Params.plugins_js }}
+      <script src="{{ . }}"></script>
+    {{ end }}
+  </body>
+</html>

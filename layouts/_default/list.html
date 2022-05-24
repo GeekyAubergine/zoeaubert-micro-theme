@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+{{ $pages := union .RegularPages .Sections }}
+{{ if .IsHome }} 
+{{ $pages = where site.RegularPages "Type" "post" }}
+{{ end }}
+
+<div>
+  {{ $paginator := .Paginate $pages }} 
+  {{ range $index, $page := $paginator.Pages }}
+  {{ partial "list-article" . }}
+  {{ end }}
+</div>
+
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="flex w-full justify-between">
+  {{ if $paginator.HasPrev }}
+  <a class="p-2 px-3 bg-category-dark text-text-dark dark:bg-category dark:text-text rounded-md" href="{{ $paginator.Prev.URL }}">← Prev Page</a>
+  {{ else }}
+  <div></div>
+  {{ end }}
+  
+  {{ if $paginator.HasNext }}
+  <a class="p-2 px-3 bg-category-dark text-text-dark dark:bg-category dark:text-text rounded-md" href="{{ $paginator.Next.URL }}">Next Page →</a>
+  {{ end }}
+</nav>
+{{ end }}
+
+{{ end }}

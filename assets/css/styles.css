@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-background dark:bg-background-dark max-w-[40rem] mx-4 sm:mx-auto transition-colors duration-500;
+  }
+
+  .text {
+    @apply text-text dark:text-text-dark font-sans tabular-nums leading-5 transition-colors duration-500;
+  }
+
+  .link {
+    @apply underline text-accent  dark:text-accent-dark;
+  }
+
+  .socialLink {
+    @apply text-lg text-accent dark:text-accent-dark;
+  }
+
+  .button {
+    @apply text-lg no-underline py-[.2rem] px-2 border-2 text-accent dark:text-accent-dark border-accent dark:border-accent-dark rounded-md hover:text-slate-800 hover:bg-accent dark:hover:bg-accent-dark transition-colors;
+  }
+
+  .navbarLink {
+    @apply button sm:ml-4 sm:px-3;
+  }
+
+  .secondary {
+    @apply text-secondary dark:text-secondary-dark;
+  }
+
+  table {
+    @apply text;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a {
+    @apply text;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply leading-5 py-2 font-bold;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-lg;
+  }
+
+  .content > p {
+    @apply py-3 leading-6 sm:text-[110%];
+  }
+
+  p > a {
+    @apply link;
+  }
+
+  em {
+    @apply italic text;
+  }
+
+  ul,
+  ol {
+    @apply py-1 px-8 text;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    @apply p-1.5;
+  }
+
+  code {
+    @apply py-1 px-1.5 font-bold table-fixed overflow-x-scroll;
+  }
+
+  pre {
+    @apply flex-1 table-fixed border border-border bg-category dark:bg-category-dark text-text dark:text-text-dark;
+    max-width: calc(100vw - 2em);
+  }
+
+  :not(pre) > code[class*="language-text"] {
+    @apply inline-block italic pt-1 pr-2 pl-2 overflow-x-auto overflow-y-hidden align-top;
+    max-width: calc(100vw - 2rem);
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+    margin: 0.5rem auto;
+    padding: 0;
+    border: 1px solid #444;
+    border-collapse: collapse;
+  }
+
+  table > tr {
+    background-color: $data-background-light;
+    border: 1px solid $border-light;
+    padding: 0.25em;
+  }
+
+  table > thead {
+    text-transform: uppercase;
+  }
+
+  table > th,
+  table > td {
+    padding: 0.5em;
+    text-align: center;
+  }
+
+  table > th {
+    font-weight: bold;
+  }
+
+  blockquote {
+    @apply bg-category dark:bg-category-dark border-l-4 border-l-accent dark:border-l-accent-dark;
+    display: flex;
+    flex: 100%;
+    flex-wrap: wrap;
+    margin: 0.5rem 0 1.5rem;
+    padding: 0.75em 1.25em;
+  }
+
+  blockquote > p {
+    @apply text italic font-bold ;
+  }
+
+  blockquote > cite {
+    @apply flex text mt-1 before:content-['-'] before:mr-1;
+  }
+
+  img {
+    @apply block max-w-full h-auto my-4 mx-auto rounded;
+    margin-block-end: 1em;
+  }
+
+  .photogrid {
+    @apply w-full;
+  }
+
+  .listArticleContent > .photogrid {
+    @apply grid gap-x-2 gap-y-2 grid-cols-3 my-2;
+  }
+
+  .listArticleContent > .photogrid > img {
+    @apply m-0;
+  }
+
+  hr {
+    height: 1px;
+    background: var(--fog);
+    border: 0;
+    margin-block: 12rem;
+  }
+  
+  iframe {
+    width: 100%;
+    background: var(--black);
+  }
+}

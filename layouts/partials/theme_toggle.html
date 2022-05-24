@@ -1,0 +1,34 @@
+<div class="mx-2">
+  <svg
+    class="toggle-button cursor-pointer text-middleGray dark:rotate-180 transition-all duration-500"
+    width="24"
+    height="24"
+    viewBox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+  >
+  <path class="fill-current" d="M 50 0 A 1 1 0 0 0 50 100" />
+  <circle cx="50" cy="50" r="44" class="stroke-current" stroke-width="8" />
+  </svg>
+</div>
+
+<script>
+  const bodyClassList = document.body.classList;
+  const htmlClassList = document.querySelector("html").classList;
+  const toggleButton = document.querySelector(".toggle-button");
+  const systemDarkSetting = window.matchMedia("(prefers-color-scheme: dark)");
+  const storeDarkValue = localStorage.getItem("dark");
+
+  const setDark = (isDark) => {
+    htmlClassList[isDark ? "add" : "remove"]("dark");
+    localStorage.setItem("dark", isDark ? "yes" : "no");
+  };
+
+  setDark(storeDarkValue ? storeDarkValue === "yes" : systemDarkSetting.matches);
+  requestAnimationFrame(() => bodyClassList.remove("hidden"));
+
+  toggleButton.addEventListener("click", () =>
+    setDark(!htmlClassList.contains("dark"))
+  );  
+  systemDarkSetting.addEventListener("change", (event) => setDark(event.matches));
+</script>

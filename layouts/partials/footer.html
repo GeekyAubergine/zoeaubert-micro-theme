@@ -1,0 +1,14 @@
+<footer class="flex flex-col justify-center border-t border-t-border mt-8 p-8 sm:flex-row">
+  <p class="text-center">
+    &copy; {{ now.Year }}
+    <a href="{{ `` | absURL }}">{{ or site.Author.name site.Title }}</a>
+  </p>
+  <p class="text-center sm:before:content-['·'] before:mx-2">
+    Powered by
+    <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️
+  </p>
+  <p class="text-center sm:before:content-['·'] before:mx-2">
+    Hosted by
+    <a href="https://micro.blog/" rel="noopener" target="_blank">Micro.blog</a>
+  </p>
+</footer>
