@@ -29,7 +29,7 @@ module.exports = {
           dark: "#343434",
         },
         accent: {
-          DEFAULT: "#B14949",
+          DEFAULT: "#AB3434",
           dark: "#C85E5E",
         },
         border: {
