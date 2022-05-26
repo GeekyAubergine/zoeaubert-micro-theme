@@ -71,7 +71,11 @@
   }
 
   .content > p {
-    @apply py-3 leading-6 sm:text-[110%];
+    @apply py-2 leading-6 sm:text-[110%];
+  }
+
+  .content > p:first-of-type {
+    @apply mt-0 pt-0;
   }
 
   p > a {
@@ -161,15 +165,11 @@
   }
 
   .photogrid {
-    @apply w-full;
+    @apply w-full grid gap-x-4 gap-y-4 grid-cols-3 my-2;
   }
 
-  .listArticleContent > .photogrid {
-    @apply grid gap-x-2 gap-y-2 grid-cols-3 my-2;
-  }
-
-  .listArticleContent > .photogrid > img {
-    @apply m-0;
+  .photogrid > img {
+    @apply m-0 my-auto;
   }
 
   hr {
@@ -182,5 +182,32 @@
   iframe {
     width: 100%;
     background: var(--black);
+  }
+
+  .microblog_conversation {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid lightgray;
+  }
+  
+  .microblog_post {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .microblog_avatar {
+    border-radius: 10px;
+    vertical-align: top;
+  }
+  
+  .microblog_time {
+    font-size: 13px;
+    padding-top: 10px;
+    color: gray;
+  }
+  
+  .microblog_time a {
+    color: gray;
+    text-decoration: none;
   }
 }

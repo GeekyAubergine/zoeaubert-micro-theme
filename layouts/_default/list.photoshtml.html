@@ -1,18 +1,11 @@
 {{ define "main" }}
 
-<div
-  class="grid gap-x-2 gap-y-2 grid-cols-3 my-2"
->
+<div class="grid gap-x-2 gap-y-2 grid-cols-3 my-2">
   {{- $list := where .Site.Pages ".Params.photos" "!=" nil -}} {{- $len := (len
   $list) -}} {{ range $index, $value := $list }} {{ $permalink := .Permalink }}
   {{ range .Params.photos }}
-  <a href="{{ $permalink }}">
-    <img
-      src="{{ . }}"
-      width="300"
-      height="300"
-      loading="lazy"
-    />
+  <a href="{{ $permalink }}" class="mx-auto my-auto">
+    <img class="my-0" src="{{ . }}" width="300" height="300" loading="lazy" />
   </a>
   {{ end }} {{ end }}
 </div>
