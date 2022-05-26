@@ -172,6 +172,10 @@
     @apply m-0 my-auto;
   }
 
+  .single-content img {
+    @apply cursor-pointer;
+  }
+
   hr {
     height: 1px;
     background: var(--fog);

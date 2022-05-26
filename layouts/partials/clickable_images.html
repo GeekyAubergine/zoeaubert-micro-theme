@@ -1,0 +1,10 @@
+<script>
+  document.querySelectorAll("img").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      const src = event.target.getAttribute("src");
+      console.log({ src })
+      window.open(src)
+      {{/*  event.target.setAttribute("src", image);  */}}
+    });
+  });
+</script>
