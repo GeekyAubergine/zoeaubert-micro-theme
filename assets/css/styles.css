@@ -160,12 +160,11 @@
   }
 
   img {
-    @apply block max-w-full h-auto my-4 mx-auto rounded;
-    margin-block-end: 1em;
+    @apply block max-w-full h-auto my-2 mx-auto rounded;
   }
 
   .photogrid {
-    @apply w-full grid gap-x-4 gap-y-4 grid-cols-3 my-2;
+    @apply w-full grid grid-cols-3 gap-x-2 gap-y-2  sm:gap-x-4 sm:gap-y-4 my-1 sm:my-2;
   }
 
   .photogrid > img {
