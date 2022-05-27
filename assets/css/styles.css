@@ -190,9 +190,7 @@
   }
 
   .microblog_conversation {
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid lightgray;
+    @apply flex flex-col border-t border-t-border mt-12;
   }
 
   .microblog_post {
@@ -200,19 +198,31 @@
     padding-bottom: 20px;
   }
 
+  .microblog_user {
+    @apply flex items-center;
+  }
+
+  .microblog_user img {
+    @apply mx-0 my-0 aspect-square;
+  }
+
+  .microblog_fullname {
+    @apply text ml-2;
+  }
+
   .microblog_avatar {
-    border-radius: 10px;
-    vertical-align: top;
+    @apply rounded-full;
+  }
+
+  .microblog_text {
+    @apply text mt-3;
   }
 
   .microblog_time {
-    font-size: 13px;
-    padding-top: 10px;
-    color: gray;
+    @apply mt-1;
   }
 
   .microblog_time a {
-    color: gray;
-    text-decoration: none;
+    @apply secondary;
   }
 }

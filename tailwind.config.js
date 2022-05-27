@@ -5,8 +5,10 @@ module.exports = {
     "photogrid",
     "microblog_conversation",
     "microblog_post",
+    "microblog_user",
     "microblog_avatar",
-    "microblog_time",
+    "microblog_fullname",
+    "microblog_text",
     "microblog_time",
   ],
   theme: {
