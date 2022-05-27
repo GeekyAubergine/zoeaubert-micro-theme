@@ -104,13 +104,15 @@
   }
 
   pre {
-    @apply flex-1 table-fixed border border-border bg-category dark:bg-category-dark text-text dark:text-text-dark;
+    @apply flex-1 table-fixed border border-border;
     max-width: calc(100vw - 2em);
+    text-shadow: none;
   }
 
-  :not(pre) > code[class*="language-text"] {
-    @apply inline-block italic pt-1 pr-2 pl-2 overflow-x-auto overflow-y-hidden align-top;
+  :not(pre) > code[class*="language-"] {
+    @apply text font-normal inline-block italic !pt-[0.15rem] !pr-2 !pl-1.5 !overflow-x-auto !overflow-y-hidden !align-top !leading-5 !bg-code dark:!bg-code-dark !text-code-text dark:!text-code-textDark;
     max-width: calc(100vw - 2rem);
+    text-shadow: none;
   }
 
   table {
@@ -152,7 +154,7 @@
   }
 
   blockquote > p {
-    @apply text italic font-bold ;
+    @apply text italic font-bold;
   }
 
   blockquote > cite {
@@ -181,7 +183,7 @@
     border: 0;
     margin-block: 12rem;
   }
-  
+
   iframe {
     width: 100%;
     background: var(--black);
@@ -192,23 +194,23 @@
     padding-top: 20px;
     border-top: 1px solid lightgray;
   }
-  
+
   .microblog_post {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-  
+
   .microblog_avatar {
     border-radius: 10px;
     vertical-align: top;
   }
-  
+
   .microblog_time {
     font-size: 13px;
     padding-top: 10px;
     color: gray;
   }
-  
+
   .microblog_time a {
     color: gray;
     text-decoration: none;
