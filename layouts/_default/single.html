@@ -19,7 +19,7 @@
 
   {{ partial "categories" . }}
 
-  {{ partial "conversation" }}
+  {{ partial "conversation" . }}
 
   <!-- Post Nav -->
   {{ $pages := where site.RegularPages "Type" "post" }}<!---->

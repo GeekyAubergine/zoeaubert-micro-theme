@@ -1,19 +1,26 @@
 {{ if .Site.Params.include_conversation }}
-<!-- <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script> -->
-<script type="text/javascript" src="https://micro.blog/conversation.js?url=https%3a%2f%2fmicro.zoeaubert.me%2f2022%2f05%2f14%2five-finally-won.html"></script>
+<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
 {{ end }}
 
 {{ if templates.Exists "partials/conversation-link.html" }}
 {{ partial "conversation-link.html" . }}
 {{ end }}
 
-<div id="conversation-link">
-
-</div>
+<a id="conversation-link" class="invisible my-4">Join the <span class="link">conversation</span> on Micro.blog</a>
 
 <script>
   const conversationLink = document.querySelector('#conversation-link')
   if (conversationLink) {
-    
+
+    const currentPageURLEncoded = encodeURIComponent('{{ .Permalink }}');
+
+    console.log({ currentPageURLEncoded })
+
+    fetch('https://micro.blog/conversation.js?format=jsonfeed&url=' + currentPageURLEncoded)
+    .then(response => response.json())
+    .then(conversation => {
+        conversationLink.setAttribute('href', conversation.home_page_url);
+        conversationLink.classList.remove('invisible');
+    }).catch();
   }
 </script>
