@@ -1,13 +1,7 @@
 {{ define "main" }}
 
-    {{ if not .Site.Params.hide_categories_on_archive }}
 	<h2>Categories</h2>
-	<div class="flex flex-row mb-4">
-		{{ range $name, $taxonomy := $.Site.Taxonomies.categories }}
-		<a class="bg-category dark:bg-category-dark hover:bg-category-hover transition-colors text pt-0.25 pb-0.5 px-1.5 mx-1 rounded first-of-type:ml-0" href="{{ "/categories/" | relURL }}{{ $name | urlize }}"> {{ $name }}</a>
-		{{ end }}
-	</div>
-    {{ end }}
+	{{ partial "all_categories" . }}
 	
 	<h2>Posts</h2>
 	{{ $list := (where .Site.Pages "Type" "post") }}
@@ -15,7 +9,7 @@
 		<p class="mb-4">
 			<a href="{{ .Permalink }}" class="u-url"><span class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "2006-01-02" }}</span></a>:
 			<span class="link"><b>{{ .Title }}</b></span> 
-			<span class="text">{{ .Summary | truncate 100 }}</span>
+			<span class="text">{{ .Summary | truncate 250 }}</span>
 		</p>
 
 	{{ end }}

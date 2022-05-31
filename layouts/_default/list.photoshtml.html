@@ -1,11 +1,17 @@
 {{ define "main" }}
 
-<div class="grid gap-x-2 gap-y-2 grid-cols-3 my-2">
-  {{- $list := where .Site.Pages ".Params.photos" "!=" nil -}} {{- $len := (len
-  $list) -}} {{ range $index, $value := $list }} {{ $permalink := .Permalink }}
+<h2>Categories</h2>
+{{ partial "all_categories" . }}
+
+<div class="grid gap-x-2 gap-y-2 grid-cols-3 my-2 mt-10">
+  {{- $list := where .Site.Pages ".Params.photos" "!=" nil -}} 
+  {{- $len := (len $list) -}}
+  {{ range $index, $value := $list }}
+  {{ $permalink := .Permalink }}
   {{ range .Params.photos }}
   <img class="mx-auto my-auto" src="{{ . }}" width="300" height="300" loading="lazy" />
-  {{ end }} {{ end }}
+  {{ end }}
+  {{ end }}
 </div>
 
 {{ partial "clickable_images" }}
