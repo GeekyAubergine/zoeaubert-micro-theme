@@ -19,13 +19,7 @@
 
   {{ partial "categories" . }}
 
-  {{ if .Site.Params.include_conversation }}
-  <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
-  {{ end }}
-
-  {{ if templates.Exists "partials/conversation-link.html" }}
-  {{ partial "conversation-link.html" . }}
-  {{ end }}
+  {{ partial "conversation" }}
 
   <!-- Post Nav -->
   {{ $pages := where site.RegularPages "Type" "post" }}<!---->

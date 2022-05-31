@@ -4,10 +4,10 @@
   {{- $list := where .Site.Pages ".Params.photos" "!=" nil -}} {{- $len := (len
   $list) -}} {{ range $index, $value := $list }} {{ $permalink := .Permalink }}
   {{ range .Params.photos }}
-  <a href="{{ $permalink }}" class="mx-auto my-auto">
-    <img class="my-0" src="{{ . }}" width="300" height="300" loading="lazy" />
-  </a>
+  <img class="mx-auto my-auto" src="{{ . }}" width="300" height="300" loading="lazy" />
   {{ end }} {{ end }}
 </div>
+
+{{ partial "clickable_images" }}
 
 {{ end }}

@@ -1,10 +1,185 @@
+<div
+  id="imageOverlay"
+  class="invisible opacity-0 fixed top-0 left-0 right-0 bottom-0 z-10 w-screen h-screen bg-background dark:bg-background-dark flex justify-center items-center transition-all duration-300"
+>
+  <div
+    id="openImage"
+    class="absolute top-0 right-0 h-12 w-12 z-10 flex justify-center items-center cursor-pointer"
+  >
+    <svg width="24px" height="24px" viewBox="0 0 24 24" style="cursor: pointer">
+      <g
+        stroke-width="2.1"
+        stroke="#666"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline>
+        <path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path>
+      </g>
+    </svg>
+  </div>
+  <img
+    id="imageOverlayImage"
+    src=""
+    alt=""
+    class="opacity-1 absolute rounded-[2.25rem] overflow-hidden object-contain max-h-full max-w-full object-contain max-h-[90vh] max-w-[90vw]"
+  />
+  <img
+    id="imageOverlayImage2"
+    src=""
+    alt=""
+    class="opacity-0 absolute rounded-[2.25rem] overflow-hidden object-contain z-10 max-h-full max-w-full object-contain max-h-[90vh] max-w-[90vw]"
+  />
+</div>
+
 <script>
-  document.querySelectorAll("img").forEach((item) => {
-    item.addEventListener("click", (event) => {
-      const src = event.target.getAttribute("src");
-      console.log({ src })
-      window.open(src)
-      {{/*  event.target.setAttribute("src", image);  */}}
+  const OVERLAY_ID = "#imageOverlay";
+  const IMAGE_ID = "#imageOverlayImage";
+  const IMAGE_2_ID = "#imageOverlayImage2";
+  const OPEN_IMAGE_ID = "#openImage";
+
+  const images = [];
+  let imageIndex = 0;
+  let open = false;
+
+  function hideDisplayOverlay() {
+    const overlay = document.querySelector(OVERLAY_ID);
+
+    if (overlay) {
+      overlay.classList.remove("visible");
+      overlay.classList.remove("opacity-1");
+      overlay.classList.add("invisible");
+      overlay.classList.add("opacity-0");
+    }
+
+    open = false;
+  }
+
+  function updateImageSrc() {
+    const overlayImage = document.querySelector(IMAGE_ID);
+    const overlayImage2 = document.querySelector(IMAGE_2_ID);
+
+    const image = images[imageIndex];
+
+    if (overlayImage && overlayImage2 && image) {
+      overlayImage2.setAttribute("src", image);
+
+      overlayImage.classList.remove("opacity-100");
+      overlayImage.classList.add("opacity-0", "transition-all", "duration-300");
+
+      overlayImage2.classList.add(
+        "opacity-100",
+        "transition-all",
+        "duration-300"
+      );
+      overlayImage2.classList.remove("opacity-0");
+
+      setTimeout(() => {
+        overlayImage.setAttribute("src", image);
+
+        overlayImage.classList.add("opacity-100");
+        overlayImage.classList.remove(
+          "opacity-0",
+          "transition-all",
+          "duration-300"
+        );
+
+        overlayImage2.classList.remove(
+          "opacity-100",
+          "transition-all",
+          "duration-300"
+        );
+        overlayImage2.classList.add("opacity-0");
+      }, 300);
+    }
+  }
+
+  function displayImage(src) {
+    const index = images.findIndex((s) => s === src);
+
+    console.log({ index });
+
+    if (index === -1) {
+      return;
+    }
+
+    imageIndex = index;
+
+    const overlay = document.querySelector(OVERLAY_ID);
+
+    updateImageSrc();
+
+    if (overlay) {
+      overlay.classList.add("visible");
+      overlay.classList.add("opacity-1");
+      overlay.classList.remove("invisible");
+      overlay.classList.remove("opacity-0");
+      console.log({ overlay });
+    }
+
+    open = true;
+  }
+
+  function nextImage() {
+    if (open && imageIndex < images.length - 3) {
+      imageIndex += 1;
+      updateImageSrc();
+    }
+  }
+
+  function previousImage() {
+    if (open && imageIndex > 0) {
+      imageIndex -= 1;
+      updateImageSrc();
+    }
+  }
+
+  setTimeout(() => {
+    document.querySelectorAll("img").forEach((item) => {
+      images.push(item.getAttribute("src"));
+
+      item.addEventListener("click", (event) => {
+        const src = event.target.getAttribute("src");
+        displayImage(src);
+      });
     });
+
+    const overlay = document.querySelector(OVERLAY_ID);
+    const overlayImage = document.querySelector(IMAGE_ID);
+
+    if (overlay) {
+      overlay.addEventListener("click", () => {
+        overlay.classList.remove("visible");
+        overlay.classList.remove("opacity-1");
+        overlay.classList.add("invisible");
+        overlay.classList.add("opacity-0");
+      });
+    }
+
+    if (overlayImage) {
+      overlayImage.addEventListener("click", () => {
+        overlay.classList.remove("visible");
+        overlay.classList.remove("opacity-1");
+        overlay.classList.add("invisible");
+        overlay.classList.add("opacity-0");
+      });
+    }
+
+    const openImage = document.querySelector(OPEN_IMAGE_ID);
+    openImage.addEventListener("click", (event) => {
+      window.open(images[imageIndex]);
+      event.stopPropagation()
+    });
+  }, 100);
+
+  document.addEventListener("keyup", (event) => {
+    if (event.code === "ArrowRight") {
+      nextImage();
+    } else if (event.code === "ArrowLeft") {
+      previousImage();
+    } else if (event.code === "Escape") {
+      hideDisplayOverlay();
+    }
   });
 </script>

@@ -6,7 +6,9 @@
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
 
+  {{ if hugo.IsProduction }}
   <script src="https://optimistic-magic-dance.zoeaubert.me/script.js" data-site="CEMQJKAX" defer></script>
+  {{ end }}
 
   <!-- Title -->
   <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}</title>
