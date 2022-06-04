@@ -1,17 +1,19 @@
 {{ define "main" }}
 
-	<h2>Categories</h2>
-	{{ partial "all_categories" . }}
-	
-	<h2>Posts</h2>
-	{{ $list := (where .Site.Pages "Type" "post") }}
-	{{ range $list }}
-		<p class="mb-4">
-			<a href="{{ .Permalink }}" class="u-url"><span class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "2006-01-02" }}</span></a>:
-			<span class="link"><b>{{ .Title }}</b></span> 
-			<span class="text">{{ .Summary | truncate 250 }}</span>
-		</p>
+	<div class=" max-w-[40rem] mx-auto">
+		<h2>Categories</h2>
+		{{ partial "all_categories" . }}
 
-	{{ end }}
+		<h2>Posts</h2>
+		{{ $list := (where .Site.Pages "Type" "post") }}
+		{{ range $list }}
+			<p class="mb-4">
+				<a href="{{ .Permalink }}" class="u-url"><span class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "2006-01-02" }}</span></a>:
+				<span class="link"><b>{{ .Title }}</b></span> 
+				<span class="text">{{ .Summary | truncate 250 }}</span>
+			</p>
+
+		{{ end }}
+	</div>
 
 {{ end }}

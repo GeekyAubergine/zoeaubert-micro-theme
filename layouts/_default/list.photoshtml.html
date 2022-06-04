@@ -1,17 +1,21 @@
 {{ define "main" }}
 
+<div class="mx-auto max-w-[40rem]">
 <h2>Categories</h2>
 {{ partial "all_categories" . }}
+</div>
 
-<div class="grid gap-x-2 gap-y-2 grid-cols-3 my-2 mt-10">
+<div class="mx-auto max-w-[70rem]">
+<div class="grid gap-x-2 gap-y-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 my-2 mt-10">
   {{- $list := where .Site.Pages ".Params.photos" "!=" nil -}} 
   {{- $len := (len $list) -}}
   {{ range $index, $value := $list }}
   {{ $permalink := .Permalink }}
   {{ range .Params.photos }}
-  <img class="mx-auto my-auto" src="{{ . }}" width="300" height="300" loading="lazy" />
+  <img class="mx-auto my-auto" src="{{ . }}" width="600" height="600" loading="lazy" data-originalLink="{{ $permalink }}" />
   {{ end }}
   {{ end }}
+</div>
 </div>
 
 {{ partial "clickable_images" }}

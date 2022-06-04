@@ -1,5 +1,5 @@
 <div class="flex flex-row mb-4 flex-wrap max-w-full">
     {{ range $name, $taxonomy := $.Site.Taxonomies.categories }}
-    <a class="bg-category dark:bg-category-dark hover:bg-category-hover transition-colors text pt-[0.1rem] pb-[0.2rem] px-[0.5rem] mx-1 my-1 rounded first-of-type:ml-0" href="{{ "/categories/" | relURL }}{{ $name | urlize }}"> {{ $name }}</a>
+    <a class="bg-category dark:bg-category-dark hover:bg-category-hover transition-colors text pt-[0.1rem] pb-[0.2rem] px-[0.5rem] mr-2 my-1 rounded first-of-type:ml-0" href="{{ "/categories/" | relURL }}{{ $name | urlize }}"> {{ $name }}</a>
     {{ end }}
 </div>

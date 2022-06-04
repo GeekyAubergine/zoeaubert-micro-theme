@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-background dark:bg-background-dark max-w-[40rem] mx-4 sm:mx-auto transition-colors duration-500;
+    @apply bg-background dark:bg-background-dark mx-4 transition-colors duration-500;
   }
 
   .text {
