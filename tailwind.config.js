@@ -16,29 +16,33 @@ module.exports = {
       colors: {
         background: {
           DEFAULT: "#FFFFFF",
-          dark: "#181818",
+          dark: "#101012",
+        },
+        headings: {
+          DEFAULT: "#252527",
+          dark: "#E4E3E7",
         },
         text: {
-          DEFAULT: "#101010",
-          dark: "#F0F0F0",
+          DEFAULT: "#252527",
+          dark: "#E4E3E7",
         },
         secondary: {
-          DEFAULT: "#303030",
-          dark: "#C0C0C0",
+          DEFAULT: "#505050",
+          dark: "#A3A1A8",
         },
         category: {
-          DEFAULT: "#EBEAEA",
-          dark: "#303030",
+          DEFAULT: "#F6FAF9",
+          dark: "#181D27",
         },
         accent: {
-          DEFAULT: "#A1018F",
-          dark: "#F18AFF",
+          DEFAULT: "#05614F",
+          dark: "#2DB69B",
         },
         code: {
-          DEFAULT: "#EBEBEB",
-          dark: "#282828",
-          text: "#8D017D",
-          textDark: "#F293FF",
+          DEFAULT: "#F6FAF9",
+          dark: "#181D27",
+          text: "#05614F",
+          textDark: "#2DB69B",
         },
         border: {
           DEFAULT: "#888888",

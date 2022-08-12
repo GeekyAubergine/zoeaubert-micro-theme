@@ -5,8 +5,8 @@
 {{ partial "all_categories" . }}
 </div>
 
-<div class="mx-auto max-w-[70rem]">
-<div class="grid gap-x-2 gap-y-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 my-2 mt-10">
+<div class="mx-auto max-w-[40rem]">
+<div class="grid gap-x-2 gap-y-2 grid-cols-2 sm:grid-cols-3 my-2 mt-10">
   {{- $list := where .Site.Pages ".Params.photos" "!=" nil -}} 
   {{- $len := (len $list) -}}
   {{ range $index, $value := $list }}

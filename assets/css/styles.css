@@ -47,7 +47,7 @@
   h6,
   p,
   a {
-    @apply text;
+      @apply text;
   }
 
   h2,
@@ -55,64 +55,72 @@
   h4,
   h5,
   h6 {
-    @apply leading-5 py-2 font-bold;
+      @apply leading-5 my-2 font-bold text-headings dark:text-headings-dark;
+  }
+
+  h1 {
+      @apply text-headings dark:text-headings-dark;
   }
 
   h2 {
-    @apply text-2xl;
+      @apply text-xl;
   }
 
   h3 {
-    @apply text-xl;
+      @apply text-lg;
   }
 
   h4 {
-    @apply text-lg;
+      @apply text-lg;
   }
 
   .content > p {
-    @apply py-2 leading-6 sm:text-[110%];
+      @apply my-2 leading-[1.6rem] sm:leading-6;
   }
 
-  .content > p:first-of-type {
-    @apply mt-0 pt-0;
+  .content > h2,
+  .content > h3,
+  .content > h4,
+  .content > h5,
+  .content > h6 {
+      @apply mt-9;
   }
 
   p > a {
-    @apply link;
+      @apply link;
   }
 
   em {
-    @apply italic text;
+      @apply italic text;
   }
 
   ul,
   ol {
-    @apply py-1 px-8 text;
+      @apply my-1 mx-8 text;
   }
 
   ol {
-    @apply list-decimal;
+      @apply list-decimal;
   }
 
   li {
-    @apply p-1.5;
+      @apply mx-1.5 my-3;
   }
 
   code {
-    @apply py-1 px-1.5 font-bold table-fixed overflow-x-scroll;
+      @apply my-1 font-bold table-fixed overflow-x-scroll !border-0;
   }
 
   pre {
-    @apply flex-1 table-fixed border border-border;
-    max-width: calc(100vw - 2em);
-    text-shadow: none;
+      @apply flex-1 table-fixed !border-0;
+      max-width: calc(100vw - 2em);
+      text-shadow: none;
   }
 
-  :not(pre) > code[class*="language-"] {
-    @apply text font-normal inline-block italic !pt-[0.15rem] !pr-2 !pl-1.5 !overflow-x-auto !overflow-y-hidden !align-top !leading-5 !bg-code dark:!bg-code-dark !text-code-text dark:!text-code-textDark;
-    max-width: calc(100vw - 2rem);
-    text-shadow: none;
+  :not(pre) > code[class*='language-'] {
+      @apply text font-normal inline-block italic !mt-0.5 !mb-0 !pr-2 !pl-1.5 !pt-0.5 !pb-1 !overflow-x-auto !overflow-y-hidden !align-top !leading-4 !shadow-none !bg-code dark:!bg-code-dark !text-code-text dark:!text-code-textDark sm:!pt-1 sm:!mt-0;
+      max-width: calc(100vw - 2rem);
+      text-shadow: none;
   }
 
   table {

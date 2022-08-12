@@ -1,6 +1,6 @@
 <div class="flex flex-row mt-2">
   {{ range .Params.categories }}
   {{ $href := print (absURL "categories/") (urlize .) }}
-  <a href="{{ $href }}" class="bg-category dark:bg-category-dark hover:bg-category-hover transition-colors text pt-0.25 pb-0.5 px-1.5 mx-1 rounded first-of-type:ml-0">{{ . }}</a>
+  <a href="{{ $href }}" class="bg-category dark:bg-category-dark hover:bg-category-hover transition-colors text pt-0.25 pb-0.5 px-1.5 mx-1 rounded first-of-type:ml-0">#{{ . }}</a>
   {{ end }}
 </div>
