@@ -1,21 +1,13 @@
-<article class="flex flex-col w-full mb-12 sm:mb-12 relative max-w-[40rem] mx-auto">
+<article
+  class="flex flex-col w-full widthControlled"
+>
+  {{ partial "post_header.html" . }}
   {{ if .Title }}
-  <a href="{{ .Permalink }}">
-    <h2 class="text-xl mb-0 link">{{ .Title }}</h2>
-  </a>
-  <time datetime="{{ .Date }}" class="mb-4 text-lg secondary">
-    {{ .Date | time.Format ":date_medium" }}
-  </time>
   <p>{{ .Summary | truncate 200 }}</p>
   {{ else }}
-  <a href="{{ .Permalink }}">
-    <h2 class="text-xl link font-bold mb-0">
-      <time datetime="{{ .Date }}">
-        {{ .Date | time.Format ":date_medium" }}
-      </time>
-    </h2>
-  </a>
   <section class="flex flex-col content">{{ .Content }}</section>
-  {{ end }} 
-  {{ partial "categories.html" .}}
+  {{ end }}
+  <div class="flex justify-center">
+    <div class="hr h-[1px] w-1/3 my-12"></div>
+  </div>
 </article>

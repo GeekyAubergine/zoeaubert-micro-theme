@@ -1,0 +1,12 @@
+{{ if .Params.categories }}
+<span class="secondary">-</span>
+  {{ with .Params.categories }}
+  {{ $categories := . }}
+    {{ range $i, $e := . }} {{ $href := print (absURL
+      "categories/") (urlize .) }}
+      <span class="secondary">
+        <a href="{{ $href }}" class="secondaryLink capitalize">{{ $e }}</a>{{ if lt (add $i 1) (len $categories) }},{{ end }}
+      </span>
+    {{ end }}
+  {{ end }}
+{{ end }}

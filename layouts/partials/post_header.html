@@ -1,0 +1,22 @@
+{{ if .Title }}
+<div class="mb-6">
+<a href="{{ .Permalink }}">
+    <h2 class="text-2xl mb-0 hoverUnderline">{{ .Title }}</h2>
+</a>
+{{ partial "post_categories.html" .}}
+<a href="{{ .Permalink }}">
+    <time datetime="{{ .Date }}" class="secondaryLink">
+    {{ .Date | time.Format ":date_medium" }}
+    </time>
+</a>
+</div>
+{{ else }}
+<div>
+<a href="{{ .Permalink }}" class="">
+    <time datetime="{{ .Date }}" class="secondaryLink">
+    {{ .Date | time.Format ":date_medium" }}
+    </time>
+</a>
+{{ partial "post_categories.html" .}}
+</div>
+{{ end }}

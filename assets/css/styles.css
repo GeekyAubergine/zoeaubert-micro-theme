@@ -32,7 +32,27 @@
   }
 
   .secondary {
-    @apply text-secondary dark:text-secondary-dark;
+    @apply text-secondary dark:text-secondary-dark text-sm duration-500;
+  }
+
+  .hoverUnderline {
+    @apply hover:underline;
+  }
+
+  .secondaryLink {
+    @apply secondary hoverUnderline;
+  }
+
+  .widthControlled {
+    @apply max-w-[60ch] mx-auto;
+  }
+
+  .hr {
+    @apply bg-border dark:bg-border-dark;
+  }
+
+  .border {
+    @apply border-2 border-accent dark:border-accent-dark;
   }
 
   table {
@@ -47,7 +67,7 @@
   h6,
   p,
   a {
-      @apply text;
+    @apply text;
   }
 
   h2,
@@ -55,27 +75,27 @@
   h4,
   h5,
   h6 {
-      @apply leading-5 my-2 font-bold text-headings dark:text-headings-dark;
+    @apply leading-5 my-2 font-bold text-headings dark:text-headings-dark;
   }
 
   h1 {
-      @apply text-headings dark:text-headings-dark;
+    @apply text-headings dark:text-headings-dark;
   }
 
   h2 {
-      @apply text-xl;
+    @apply text-xl;
   }
 
   h3 {
-      @apply text-lg;
+    @apply text-lg;
   }
 
   h4 {
-      @apply text-lg;
+    @apply text-lg;
   }
 
   .content > p {
-      @apply my-2 leading-[1.6rem] sm:leading-6;
+    @apply my-2 leading-[1.6rem] sm:leading-6;
   }
 
   .content > h2,
@@ -83,44 +103,44 @@
   .content > h4,
   .content > h5,
   .content > h6 {
-      @apply mt-9;
+    @apply mt-9;
   }
 
   p > a {
-      @apply link;
+    @apply link;
   }
 
   em {
-      @apply italic text;
+    @apply italic text;
   }
 
   ul,
   ol {
-      @apply my-1 mx-8 text;
+    @apply my-1 mx-8 text;
   }
 
   ol {
-      @apply list-decimal;
+    @apply list-decimal;
   }
 
   li {
-      @apply mx-1.5 my-3;
+    @apply mx-1.5 my-3;
   }
 
   code {
-      @apply my-1 font-bold table-fixed overflow-x-scroll !border-0;
+    @apply my-1 font-bold table-fixed overflow-x-scroll !border-0;
   }
 
   pre {
-      @apply flex-1 table-fixed !border-0;
-      max-width: calc(100vw - 2em);
-      text-shadow: none;
+    @apply flex-1 table-fixed !border-0;
+    max-width: calc(100vw - 2em);
+    text-shadow: none;
   }
 
-  :not(pre) > code[class*='language-'] {
-      @apply text font-normal inline-block italic !mt-0.5 !mb-0 !pr-2 !pl-1.5 !pt-0.5 !pb-1 !overflow-x-auto !overflow-y-hidden !align-top !leading-4 !shadow-none !bg-code dark:!bg-code-dark !text-code-text dark:!text-code-textDark sm:!pt-1 sm:!mt-0;
-      max-width: calc(100vw - 2rem);
-      text-shadow: none;
+  :not(pre) > code[class*="language-"] {
+    @apply text font-normal inline-block italic !mt-0.5 !mb-0 !pr-2 !pl-1.5 !pt-0.5 !pb-1 !overflow-x-auto !overflow-y-hidden !align-top !leading-4 !shadow-none !bg-code dark:!bg-code-dark !text-code-text dark:!text-code-textDark sm:!pt-1 sm:!mt-0;
+    max-width: calc(100vw - 2rem);
+    text-shadow: none;
   }
 
   table {

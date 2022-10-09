@@ -1,23 +1,10 @@
 {{ define "main" }}
 
-<article class="mx-auto max-w-[40rem]">
-  <header class="mb-4">
-    {{ if .Title }}
-    <h2 class="text-2xl mb-0 link leading-6">{{ .Title }}</h2>
-    <time datetime="{{ .Date }}" class="mb-4 text-lg secondary">
-      {{ .Date | time.Format ":date_medium" }}
-    </time>
-    {{ else }}
-    <h2 class="text-2xl link mb-2 font-bold">
-      <time datetime="{{ .Date }}">
-        {{ .Date | time.Format ":date_medium" }}
-      </time>
-    </h2>
-    {{ end }}
+<article class="widthControlled">
+  <header>
+    {{ partial "post_header.html" . }}
   </header>
   <section class="content single-content">{{ .Content }}</section>
-
-  {{ partial "categories" . }}
 
   {{ partial "conversation" . }}
 

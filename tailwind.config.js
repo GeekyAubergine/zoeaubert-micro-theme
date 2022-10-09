@@ -24,7 +24,7 @@ module.exports = {
         },
         text: {
           DEFAULT: "#252527",
-          dark: "#E4E3E7",
+          dark: "#F4F3F7",
         },
         secondary: {
           DEFAULT: "#505050",
@@ -35,8 +35,8 @@ module.exports = {
           dark: "#181D27",
         },
         accent: {
-          DEFAULT: "#05614F",
-          dark: "#2DB69B",
+          DEFAULT: "#950500",//"#05614F",
+          dark: "#FFC040",///#FEB847",//"#F2DE7C",//"#FEB847",//D9BBFF
         },
         code: {
           DEFAULT: "#F6FAF9",
@@ -45,7 +45,8 @@ module.exports = {
           textDark: "#2DB69B",
         },
         border: {
-          DEFAULT: "#888888",
+          DEFAULT: "#505050",
+          dark: "#A3A1A8",
         },
         middleGray: "#888888",
       },

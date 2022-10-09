@@ -1,13 +1,13 @@
-<footer class="flex flex-col justify-center border-t border-t-border mt-8 p-8 sm:flex-row  max-w-[40rem] mx-auto">
+<footer class="flex flex-col justify-center border-t border-t-border dark:border-t-border-dark mt-8 p-8 sm:flex-row widthControlled">
   <p class="text-center">
     &copy; {{ now.Year }}
     <a href="{{ `` | absURL }}">{{ or site.Author.name site.Title }}</a>
   </p>
-  <p class="text-center sm:before:content-['·'] before:mx-2">
+  <p class="text-center sm:before:content-['-'] before:ml-2 before:mr-1.5">
     Powered by
     <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️
   </p>
-  <p class="text-center sm:before:content-['·'] before:mx-2">
+  <p class="text-center sm:before:content-['-'] before:ml-2 before:mr-1.5">
     Hosted by
     <a href="https://micro.blog/" rel="noopener" target="_blank">Micro.blog</a>
   </p>
