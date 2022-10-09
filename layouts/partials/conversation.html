@@ -6,11 +6,9 @@
 {{ end }} {{ if templates.Exists "partials/conversation-link.html" }} {{ partial
 "conversation-link.html" . }} {{ end }}
 
-<div class="mt-8 mb-4" id="conversation-wrapper invisible">
-  <a id="conversation-link" class=""
-    ><span class="link">Conversation</span> on Micro.blog</a
-  >
-</div>
+<a id="mt-8 mb-4 conversation-link" class="invisible"
+  ><span class="link">Conversation</span> on Micro.blog</a
+>
 
 <script>
   const conversationLink = document.querySelector("#conversation-link");
