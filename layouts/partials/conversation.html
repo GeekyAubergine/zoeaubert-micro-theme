@@ -1,3 +1,9 @@
+<div class="mt-8 mb-4">
+  <a id="conversation-link" class="invisible"
+    ><span class="link">Conversation</span> on Micro.blog</a
+  >
+</div>
+
 {{ if .Site.Params.include_conversation }}
 <script
   type="text/javascript"
@@ -6,10 +12,6 @@
 {{ end }} {{ if templates.Exists "partials/conversation-link.html" }} {{ partial
 "conversation-link.html" . }} {{ end }}
 
-<a id="mt-8 mb-4 conversation-link" class="invisible"
-  ><span class="link">Conversation</span> on Micro.blog</a
->
-
 <script>
   const conversationLink = document.querySelector("#conversation-link");
   if (conversationLink) {
@@ -17,7 +19,10 @@
 
     console.log({ currentPageURLEncoded });
 
-    fetch('https://micro.blog/conversation.js?format=jsonfeed&url=' + currentPageURLEncoded)
+    // fetch('https://micro.blog/conversation.js?format=jsonfeed&url=' + currentPageURLEncoded)
+    fetch(
+      "https://micro.blog/conversation.js?format=jsonfeed&url=https%3A%2F%2Fmicro.zoeaubert.me%2F2022%2F10%2F01%2Fhad-a-great.html"
+    )
       .then((response) => response.json())
       .then((conversation) => {
         conversationLink.setAttribute("href", conversation.home_page_url);
