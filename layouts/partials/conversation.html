@@ -19,10 +19,7 @@
 
     console.log({ currentPageURLEncoded });
 
-    // fetch('https://micro.blog/conversation.js?format=jsonfeed&url=' + currentPageURLEncoded)
-    fetch(
-      "https://micro.blog/conversation.js?format=jsonfeed&url=https%3A%2F%2Fmicro.zoeaubert.me%2F2022%2F10%2F01%2Fhad-a-great.html"
-    )
+    fetch('https://micro.blog/conversation.js?format=jsonfeed&url=' + currentPageURLEncoded)
       .then((response) => response.json())
       .then((conversation) => {
         conversationLink.setAttribute("href", conversation.home_page_url);
