@@ -12,8 +12,7 @@
 
 <script>
   const conversationLink = document.querySelector("#conversation-link");
-  const conversationWrapper = document.querySelector("#conversation-wrapper");
-  if (conversationLink && conversationWrapper) {
+  if (conversationLink) {
     const currentPageURLEncoded = encodeURIComponent("{{ .Permalink }}");
 
     console.log({ currentPageURLEncoded });
